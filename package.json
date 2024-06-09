@@ -23,5 +23,8 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "devDependencies": {
+    "bundlewatch": "^0.3.3"
+  }
 }
