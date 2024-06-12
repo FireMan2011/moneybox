@@ -1,4 +1,6 @@
-require_relative "boot"
+# frozen_string_literal: true
+
+require_relative 'boot'
 
 require "rails/all"
 
@@ -21,6 +23,6 @@ module Moneybox
 
     I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     I18n.default_locale = :en
-    I18n.available_locales = [:en, :ua]
+    I18n.available_locales = %i[en ua]
   end
 end

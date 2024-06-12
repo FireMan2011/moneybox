@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "name": "JS",
+      "path": "./app/assets/builds/*.js",
+      "maxSize": "500 B",
+      "compression": "none"
+    },
+    {
+      "name": "CSS",
+      "path": "./app/assets/builds/*.css",
+      "maxSize": "1.07 MB",
+      "compression": "none"
+    }
+  ]
+}
