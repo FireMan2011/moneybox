@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
-git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
@@ -40,7 +42,7 @@ gem 'jbuilder'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -63,9 +65,9 @@ group :development, :test do
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
   gem 'rubocop-rspec_rails', require: false
-  gem 'rubocop-rake', require: false
   gem 'rubocop-rubycw', require: false
   gem 'rubocop-thread_safety', require: false
 
@@ -76,6 +78,14 @@ group :development, :test do
   # A static analysis security vulnerability scanner for Ruby on Rails applications
   # https://github.com/presidentbeef/brakeman
   gem 'brakeman', require: false
+
+  # Generating fake data such as names, addresses.
+  # https://github.com/faker-ruby/faker
+  gem 'faker'
+
+  # Overcommit
+  # https://github.com/sds/overcommit
+  gem 'overcommit', require: false
 end
 
 group :development do
@@ -93,4 +103,40 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+
+  # Rails integration for factory_bot (fixtures for tests).
+  # https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails'
+
+  # Add assigns and assert_template to controller tests.
+  # https://github.com/rails/rails-controller-testing
+  gem 'rails-controller-testing'
+
+  # RSpec testing framework integration to Ruby on Rails.
+  # https://github.com/rspec/rspec-rails
+  gem 'rspec-rails'
+
+  # Code coverage for Ruby
+  # https://github.com/simplecov-ruby/simplecov
+  gem 'simplecov', require: false
+
+  # SimpleCov formatter to generate coverage in a LCOV format.
+  # https://github.com/fortissimo1997/simplecov-lcov
+  gem 'simplecov-lcov', require: false
+
+  # A mocking library for testing stripe.
+  # https://github.com/stripe-ruby-mock/stripe-ruby-mock
+  gem 'stripe-ruby-mock', '3.1.0.rc3', require: 'stripe_mock'
+
+  # Added "time travel" and "time freezing" for tests.
+  # https://github.com/travisjeffery/timecop
+  gem 'timecop', '0.9.6'
+
+  # One-liner tests for common Rails functionality.
+  # https://github.com/thoughtbot/shoulda-matchers)
+  gem 'shoulda-matchers'
+
+  # Database Cleaner
+  # ttps://github.com/DatabaseCleaner/database_cleaner
+  gem 'database_cleaner'
 end
