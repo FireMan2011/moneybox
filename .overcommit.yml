@@ -20,7 +20,6 @@ PreCommit:
     enabled: true
   EsLint:
     enabled: true
-    required_executable: "./node_modules/.bin/eslint"
     install_command: "yarn install"
     include:
       - "**/*.js"
@@ -28,17 +27,14 @@ PreCommit:
     exclude:
       - app/packs/vendor/**/*.js
       - app/packs/vendor/**/*.jsx
+      - app/assets/config/manifest.js
+      - app/javascript/application.js
+      - app/javascript/controllers/*.js
   FileSize:
     enabled: true
     size_limit_bytes: 1_000_000
   ForbiddenBranches:
     enabled: true
-  Licensed:
-    enabled: true
-    command: ["licensed", "status"]
-    include:
-      - "Gemfile.lock"
-      - "yarn.lock"
   LineEndings:
     enabled: true
     exclude:
@@ -51,6 +47,7 @@ PreCommit:
       - "**/*.gif"
       - "**/*.ico"
       - "**/*.mmdb"
+      - ".DS_Store"
   RailsSchemaUpToDate:
     enabled: true
   RuboCop:
@@ -66,6 +63,7 @@ PreCommit:
       - "spec/sample_data/**/*"
       - "vendor/**/*"
       - "**/*.jsx.snap"
+      - "yarn-error.log"
   XmlSyntax:
     enabled: true
   YamlSyntax:

@@ -1,0 +1,153 @@
+{
+  "env": {
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2023,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "config/webpack/webpack.config.js"
+      }
+    }
+  },
+  "rules": {
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "operator-linebreak": "off",
+    "no-restricted-globals": ["error", "$", "_", "I18n", "Routes", "moment"],
+    "camelcase": [
+      "error",
+      {
+        "ignoreImports": true
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "c3",
+            "message": "Please use echarts."
+          },
+          {
+            "name": "jquery",
+            "message": "Use antd, react, axios, native JS instead."
+          },
+          {
+            "name": "jquery-color",
+            "message": "Please use 'color' package."
+          },
+          {
+            "name": "jquery-sparkline",
+            "message": "Please use @fnando/sparkline. Or other package, proposals are welcomed."
+          },
+          {
+            "name": "jquery-treetable",
+            "message": "Please use antd Tree."
+          },
+          {
+            "name": "jquery-ujs",
+            "message": "Rails-specific JS unobtrusive driver. Should be removed."
+          },
+          {
+            "name": "react-virtualized",
+            "message": "Please use react-window."
+          },
+          {
+            "name": "select2",
+            "message": "Please use react-select."
+          },
+          {
+            "name": "select2-bootstrap-css",
+            "message": "Please use react-select."
+          },
+          {
+            "name": "simple-format-number",
+            "message": "Please use Intl.NumberFormat."
+          },
+          {
+            "name": "speakingurl",
+            "message": "Not maintained. We should find alternative."
+          },
+          {
+            "name": "spin.js",
+            "message": "Please use antd Spin."
+          },
+          {
+            "name": "urijs",
+            "message": "Please use native URL and URLSearchParams in browser."
+          },
+          {
+            "name": "js-routes",
+            "message": "Please import only required routes from js-routes/generated/routes."
+          },
+          {
+            "name": "lodash",
+            "message": "Use lodash-es instead."
+          },
+          {
+            "name": "underscore",
+            "message": "Use lodash-es instead."
+          },
+          {
+            "name": "leaflet",
+            "message": "Use custom import L from 'vendors/leaflet'; instead."
+          },
+          {
+            "name": "lodash-es",
+            "importNames": ["default"],
+            "message": "Import only required components: import { map } from 'lodash-es'."
+          },
+          {
+            "name": "echarts",
+            "importNames": ["default"],
+            "message": "Import only required components from 'echarts/core', 'echarts/charts', 'echarts/components', etc. Read https://echarts.apache.org/handbook/en/basics/import."
+          }
+        ],
+        "patterns": [
+          {
+            "group": ["echarts/lib/*"],
+            "message": "Do not import from 'echarts/lib/*'. Import required components from 'echarts/core', 'echarts/charts', 'echarts/components', etc. Read https://echarts.apache.org/handbook/en/basics/import."
+          },
+          {
+            "group": ["lodash-es/*"],
+            "message": "Do not import from 'lodash-es/*'. Import required components from 'lodash-es' directly: import { map } from 'lodash-es'."
+          },
+          {
+            "group": ["antd/lib/*"],
+            "message": "Do not import from 'antd/lib/*'. Import required components from 'antd' directly: import { Tooltip } from 'antd'."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.js",
+        "**/*.test.jsx",
+        "**/*.spec.js",
+        "**/*.spec.jsx",
+        "**/__tests__/**/*.test.js",
+        "**/__tests__/**/*.test.jsx",
+        "**/__tests__/**/*.spec.js",
+        "**/__tests__/**/*.spec.jsx",
+        "**/__tests__/**/*.js",
+        "**/__tests__/**/*.jsx"
+      ],
+      "globals": {
+        "mount": "writable",
+        "shallow": "writable",
+        "render": "writable"
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -18,10 +18,10 @@ module Moneybox
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    # config.time_zone = 'Central Time (US & Canada)'
+    # config.eager_load_paths << Rails.root.join('extras')
 
-    I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    I18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
     I18n.default_locale = :en
     I18n.available_locales = %i[en ua]
   end

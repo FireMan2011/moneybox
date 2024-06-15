@@ -1,2 +1,26 @@
+# Based on https://evilmartians.com/chronicles/rubocoping-with-legacy-bring-your-ruby-code-up-to-standard
+
+# We want Exclude directives from different
+# config files to get merged, not overwritten
+inherit_mode:
+  merge:
+    - Exclude
+
 require:
   - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-performance
+  - rubocop-thread_safety
+  - rubocop-rake
+
+AllCops:
+  TargetRailsVersion: 7.1
+  TargetRubyVersion: 3.3
+  # Turn on all new pending cops
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
