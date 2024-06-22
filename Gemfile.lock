@@ -70,6 +70,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -90,6 +91,9 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.4.0)
       railties (>= 6.0.0)
+    cuprite (0.15.1)
+      capybara (~> 3.0)
+      ferrum (~> 0.15.0)
     dante (0.2.0)
     database_cleaner (2.0.2)
       database_cleaner-active_record (>= 2, < 3)
@@ -101,6 +105,12 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (4.9.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.5.1)
     docile (1.4.0)
     erubi (1.12.0)
@@ -111,6 +121,11 @@ GEM
       railties (>= 5.0.0)
     faker (3.4.1)
       i18n (>= 1.8.11, < 2)
+    ferrum (0.15)
+      addressable (~> 2.5)
+      concurrent-ruby (~> 1.1)
+      webrick (~> 1.7)
+      websocket-driver (~> 0.7)
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     globalid (1.2.1)
@@ -156,6 +171,7 @@ GEM
     nio4r (2.7.3)
     nokogiri (1.16.5-x86_64-darwin)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     overcommit (0.63.0)
       childprocess (>= 0.6.3, < 6)
       iniparse (~> 1.4)
@@ -216,6 +232,9 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.8)
       io-console (~> 0.5)
+    responders (3.1.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.2.8)
       strscan (>= 3.0.9)
     rspec-core (3.13.0)
@@ -322,11 +341,14 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webrick (1.8.1)
     websocket (1.2.10)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -344,8 +366,10 @@ DEPENDENCIES
   brakeman
   capybara
   cssbundling-rails
+  cuprite
   database_cleaner
   debug
+  devise
   factory_bot_rails
   faker
   jbuilder

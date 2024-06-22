@@ -47,6 +47,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# Devise is a flexible authentication solution
+# https://github.com/heartcombo/devise
+gem 'devise'
+
 # Use Sass to process CSS
 # gem 'sassc-rails'
 
@@ -101,8 +105,15 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+
+  # Capybara
+  # https://github.com/teamcapybara/capybara
   gem 'capybara'
   gem 'selenium-webdriver'
+
+  # Headless Chrome driver for Capybara
+  # https://github.com/rubycdp/cuprite
+  gem 'cuprite', require: false
 
   # Rails integration for factory_bot (fixtures for tests).
   # https://github.com/thoughtbot/factory_bot_rails
