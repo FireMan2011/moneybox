@@ -14,11 +14,44 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 
-require 'simplecov'
-require 'simplecov-lcov'
-SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
-SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
-SimpleCov.start
+# Setup simplecov code coverage
+# to see coverage info: open coverage/index.html
+if ENV['COVERAGE']
+  require 'simplecov'
+  require 'simplecov-lcov'
+  SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+  # SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
+  SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new(
+    [
+      SimpleCov::Formatter::SimpleFormatter,
+      SimpleCov::Formatter::HTMLFormatter,
+      SimpleCov::Formatter::LcovFormatter
+    ]
+  )
+  # SimpleCov.start 'rails'
+  SimpleCov.start do
+    enable_coverage :branch
+  end
+end
+#-----------------------------
+
+require 'capybara/cuprite'
+# Capybara.register_driver :cuprite_local do |app|
+#   Capybara::Cuprite::Driver.new(app, browser: :chrome)
+# end
+# # (Optional) Set the default driver
+# Capybara.default_driver = :cuprite_local
+
+# Use selenium chrome in tests
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
+  )
+end
+
+Capybara.javascript_driver = :chrome
 
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
