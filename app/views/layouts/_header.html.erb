@@ -1,0 +1,43 @@
+<head>
+<!--
+  Coould be used with next locals assigned:
+  render partial: "header", locals: { \
+   title: "Some title",                 // -- overwrite title
+   skip_google_analytics: true,         // -- skip google analytics snippet
+  }
+-->
+
+  <meta charset="utf-8">
+  <meta  name="viewport" content="width=device-width,initial-scale=1">
+  <meta  name="description" content="control your money">
+  <meta  name="author" content="MoneyBox">
+  <meta  name="apple-mobile-web-app-capable" content="yes">
+  <meta  name="msapplication-TileColor" content="#5AC237">
+  <meta  name="theme-color" content="#5AC237">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#73dc78">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <title>
+    <% if local_assigns[:title] %>
+      <%=  title %>
+    <% else %>
+      <%= content_for?(:title) ? yield(:title) : "MoneyBox" %>
+    <% end %>
+  </title>
+
+  <%= csp_meta_tag %>
+  <%= csrf_meta_tags %>
+
+  <% unless local_assigns[:skip_google_analytics] %>
+    <%# <%= render "layouts/partials/google_analytics_snippet" %>
+  <% end %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+</head>
